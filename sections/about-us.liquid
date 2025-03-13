@@ -1,6 +1,6 @@
 {% schema %}
 {
-  "name": "About us section",
+  "name": "About Us",
   "settings": [
     {
       "type": "text",
@@ -13,6 +13,18 @@
       "id": "description",
       "label": "Описание компании",
       "default": "<p>Мы лучшие в своем деле!</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Текст кнопки",
+      "default": "Подробнее"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Ссылка для кнопки",
+      "default": "/pages/about"
     }
   ],
   "presets": [
@@ -23,7 +35,45 @@
 }
 {% endschema %}
 
-<section>
+<section class="about-us-section">
   <h2>{{ section.settings.heading }}</h2>
   <div>{{ section.settings.description }}</div>
+
+  <button href="{{ section.settings.button_link }}" class="about-us-button">
+    {{ section.settings.button_text }}
+  </button>
 </section>
+
+<style>
+  .about-us-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .about-us-section h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .about-us-section div {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .about-us-section a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+
+  .about-us-section a:hover {
+    background-color: #777;
+  }
+</style>
